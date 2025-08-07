@@ -49,13 +49,19 @@
               <a href="https://qiushiyang.github.io/">Qiushi Yang</a>,
             </span>
             <span class="author-block">
+                <a href="https://scholar.google.com/citations?hl=zh-CN&user=3fmmfg8AAAAJ">Yingjie Chen</a>,
+              </span>
+            <span class="author-block">
               <a href="https://scholar.google.com/citations?user=mpwXqNoAAAAJ&hl=zh-CN">Yuan Yao</a>,
             </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=C-7UhS9dBroC&hl=zh-CN">Miaomiao Cui</a>,
-            </span>
+                <a href="https://menyifang.github.io">Yifang Men</a>,
+              </span>
+              <span class="author-block">
+                <a href="https://www.researchgate.net/profile/Huaizhuo-Liu">Huaizhuo Liu</a>,
+              </span>
             <span class="author-block">
-              <a href="https://scholar.google.com/citations?user=FJwtMf0AAAAJ&hl=en">Liefeng Bo</a>,
+              <a href="https://scholar.google.com/citations?user=C-7UhS9dBroC&hl=zh-CN">Miaomiao Cui</a>,
             </span>
           </div>
 
@@ -167,11 +173,9 @@
             <div class="image-container">
                 <img src="static/images/Framework_new.jpg" alt="Method overview" style="max-width: 100%; height: auto; margin: 20px 0;">
                     <p>
-                        We present MoSAM, a unified framework that synergistically integrates Motion-Guided Prompting (MGP) and Spatial-Temporal Memory Selection (ST-MS) to enhance motion-aware segmentation with reliable memory management.
-                    </p>
+                        We propose McSc for video generation, integrating human preference reasoning and preference alignment to synthesis videos with estimated preference. McSc contains three key steps: (1) ScDR trains a generative reward model with a self-critic strategy towards single-dimension preference reasoning, (2) HCR exploits holistic video assessment with structured reward mechanisms, and (3) McDPO optimizes the video generation model to synthesize diverse videos align with true human preference by reducing evaluation dimension bias.                    </p>
                     <p>
-                        To provide motion cues for the model, facilitating superior object tracking and segmentation, MGP captures the motion representation in both sparse and dense manners and then forecasts the subsequence object localization as future prompts. Considering that the SAM2 memory bank may contain unreliable frame features without objects, ST-MS is designed to adaptively pick up more reliable frame features to update the memory bank by using confidence from both temporal and spatial levels.
-                    </p>
+            </div>
         </div>
     </div>
 </section>
@@ -180,19 +184,19 @@
 <section class="section">
     <div class="container">
         <div class="content">
-            <h2 class="title has-text-centered">Videos</h2>
+            <h2 class="title has-text-centered">Generated Videos</h2>
             
             <!-- First row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Baseline: "In a still frame, a stop sign"</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case1-baseline.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
+                    <p style="text-align: center; margin-bottom: 10px;">McSc: "In a still frame, a stop sign"</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case1-ours.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
@@ -203,14 +207,14 @@
             <!-- Second row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline/p>
+                    <p style="text-align: center; margin-bottom: 10px;">Baseline: "Macro slo-mo. Slow motion cropped closeup of roasted coffee beans falling into an empty bowl"</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case2-baseline.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
+                    <p style="text-align: center; margin-bottom: 10px;">McSc: "Macro slo-mo. Slow motion cropped closeup of roasted coffee beans falling into an empty bowl"</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case2-ours.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
@@ -221,14 +225,14 @@
             <!-- Thrid row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Baseline: "A drone view of celebration with Christmas tree and fireworks, starry sky - background."</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case3-baseline.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
+                    <p style="text-align: center; margin-bottom: 10px;">McSc: "A drone view of celebration with Christmas tree and fireworks, starry sky - background."</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case3-ours.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
@@ -239,14 +243,14 @@
             <!-- Fourth row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline/p>
+                    <p style="text-align: center; margin-bottom: 10px;">Baseline: "a shark is swimming in the ocean, racking focus"</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case4-baseline.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
+                    <p style="text-align: center; margin-bottom: 10px;">McSc: "a shark is swimming in the ocean, racking focus"</p>
                     <video controls style="width: 100%;">
                         <source src="static/videos/case4-ours.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
