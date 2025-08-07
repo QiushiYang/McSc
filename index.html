@@ -1,60 +1,11 @@
-<!-- <!DOCTYPE html>
-<html> -->
-<!-- <head>
-    <style>
-        .center-text {
-            text-align: center;
-        }
-        
-        .image-container {
-            width: 100%;
-            text-align: center;
-            margin: 20px 0;
-        }
-        
-        .image-container img {
-            max-width: 100%;
-            height: auto;
-        }
-        
-        .video-container {
-            display: flex;
-            justify-content: space-between;
-            margin: 20px 0;
-        }
-        
-        .video-item {
-            width: 48%;
-            text-align: center;
-        }
-        
-        .video-item video {
-            width: 100%;
-            height: auto;
-        }
-        
-        .video-description {
-            margin: 10px 0;
-            text-align: center;
-        }
-
-        .section-title {
-            text-align: center;
-            margin: 30px 0;
-            font-size: 24px;
-            font-weight: bold;
-        }
-    </style>
-</head> -->
-
 <!DOCTYPE html>
 <html>
 <head>
   <meta charset="utf-8">
-  <meta name="description" content="MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection">
+  <meta name="description" content="McSc: Motion-Corrective Preference Alignment for Video Generation with Self-Critic Hierarchical Reasoning">
   <meta name="keywords" content="Nerfies, D-NeRF, NeRF">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection</title>
+  <title>McSc: Motion-Corrective Preference Alignment for Video Generation with Self-Critic Hierarchical Reasoning</title>
 
   <!-- Global site tag (gtag.js) - Google Analytics -->
   <script async src="https://www.googletagmanager.com/gtag/js?id=G-PYVRSFMDRL"></script>
@@ -92,7 +43,7 @@
     <div class="container">
       <div class="columns is-centered">
         <div class="column has-text-centered">
-          <h1 class="title is-1 publication-title">MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection</h1>
+          <h1 class="title is-1 publication-title">McSc: Motion-Corrective Preference Alignment for Video Generation with Self-Critic Hierarchical Reasoning</h1>
           <div class="is-size-5 publication-authors">
             <span class="author-block">
               <a href="https://qiushiyang.github.io/">Qiushi Yang</a>,
@@ -115,7 +66,7 @@
           <div class="column has-text-centered">
             <div class="publication-links">
               <span class="link-block">
-                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/QiushiYang/McSc" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fas fa-file-pdf"></i>
                   </span>
@@ -123,7 +74,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/QiushiYang/McSc" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="ai ai-arxiv"></i>
                   </span>
@@ -131,7 +82,7 @@
                 </a>
               </span>
               <span class="link-block">
-                <a href="https://github.com/QiushiYang/MoSAM" class="external-link button is-normal is-rounded is-dark">
+                <a href="https://github.com/QiushiYang/McSc" class="external-link button is-normal is-rounded is-dark">
                   <span class="icon">
                       <i class="fab fa-github"></i>
                   </span>
@@ -156,9 +107,9 @@
     <div class="container">
         <div class="image-container">
             <figure class="image">
-                <img src="static/images/Visualization_2_more_new.jpg" alt="Qualitative comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
+                <img src="static/images/Visualization_Comparison.jpg" alt="Qualitative comparison" style="max-width: 100%; height: auto; margin: 20px 0;">
                 <figcaption style="text-align: center; max-width: 100%; margin: 10px 0;">
-                    Qualitative comparison on video object segmentation. (a), (c) show the results from SAM2, and (b),(d) are drawn from our MoSAM, superior in hard cases including object object disappearance and occlusion. Red boxes suggest the wrong segmentation or object object disappearance, and green boxes indicate accurate segmentation.
+                    Visualization comparison of generated videos by the baselines and the proposed method. Our McSc generate videos with larger motion dynamic and stronger semantic alignment.
                 </figcaption>
             </figure>
         </div>
@@ -173,16 +124,35 @@
             <h2 class="title has-text-centered">Abstract</h2>
             <div class="content has-text-justified">
                 <p>
-                  The recent Segment Anything Model 2 (SAM2) has demonstrated exceptional capabilities in interactive object segmentation for both images and videos. However, as a foundational model on interactive segmentation, SAM2 performs segmentation directly based on mask memory from the past six frames, leading to two significant challenges.
-                  Firstly, during inference in videos, objects may disappear since SAM2 relies solely on memory without accounting for object motion information, which limits its long-range object tracking capabilities.
-                  Secondly, its memory is constructed from fixed past frames, making it susceptible to challenges associated with object disappearance or occlusion, due to potentially inaccurate segmentation results in memory.
+                    Text-to-video (T2V) generation has achieved remarkable progress in producing high-quality videos aligned with textual prompts. 
+                    However, aligning synthesized videos with nuanced human preference remains challenging due to the subjective and multifaceted nature of human judgment. 
+                    Existing video preference alignment methods rely on costly human annotations or utilize proxy metrics to predict preference, which lacks the understanding of human preference logic. 
+                    Moreover, they usually directly align T2V models with the overall preference distribution, ignoring potential conflict dimensions like motion dynamics and visual quality, which may bias models towards low-motion content. 
+                    To address these issues, we present Motion-corrective alignment with Self-critic hierarchical Reasoning (McSc), a three-stage reinforcement learning framework for robust preference modeling and alignment. 
+                    Firstly, Self-critic Dimensional Reasoning (ScDR) trains a generative reward model (RM) to decompose preferences into per-dimension assessments, using self-critic reasoning chains for reliable learning. 
+                    Secondly, to achieve holistic video comparison, we introduce Hierarchical Comparative Reasoning (HCR) for structural multi-dimensional reasoning with hierarchical reward supervision. 
+                    Finally, using RM-preferred videos, we propose Motion-corrective Direct Preference Optimization (McDPO) to optimize T2V models, while dynamically re-weighting alignment objective to mitigate bias towards low-motion content. 
+                    Experiments show that McSc achieves superior performance in human preference alignment and generates videos with high-motion dynamic.
                 </p>
-                <p>
-                  To address these problems, we present MoSAM, incorporating two key strategies to integrate object motion cues into the model and establish more reliable feature memory.
-                  Firstly, we propose Motion-Guided Prompting (MGP), which represents the object motion in both sparse and dense manners, then injects them into SAM2 through a set of motion-guided prompts. MGP enables the model to adjust its focus towards the direction of motion, thereby enhancing the object tracking capabilities.
-                  Furthermore, acknowledging that past segmentation results may be inaccurate, we devise a Spatial-Temporal Memory Selection (ST-MS) mechanism that dynamically identifies frames likely to contain accurate segmentation in both pixel- and frame-level. By eliminating potentially inaccurate mask predictions from memory, we can leverage more reliable memory features to exploit similar regions for improving segmentation results.
-                  Extensive experiments on various benchmarks of video object segmentation and video instance segmentation demonstrate that our MoSAM achieves state-of-the-art results compared to other competitors.
-                </p>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="section">
+    <div class="container">
+        <div class="content">
+            <!-- <h2 class="title">Abstract</h2> -->
+            <h2 class="title has-text-centered">Motivation</h2>
+            <div class="image-container">
+                <img src="static/images/Motivation_new.jpg" alt="Motivation overview" style="max-width: 100%; height: auto; margin: 20px 0;">
+                    <p>
+                        This work aims to address the challenge of aligning text-to-video generation models with human preferences. Traditional preference alignment methods rely heavily on large-scale human-annotated preference data, which is both time-consuming and labor-intensive. To mitigate this, recent studies have proposed a two-stage framework: preference prediction followed by preference alignment. In this framework, a preference model is first used to automatically estimate human preferences for generated videos, and the resulting pseudo-preferences are then leveraged to optimize the generative model. Building upon this paradigm, our work introduces a novel preference prediction approach, ScHR, comprising two sequential training stages, ScDR and HCR, followed by a new strategy for preference alignment.
+                    </p>
+                    <p>
+                        Specifically, to improve both preference prediction and alignment, we draw inspiration from the way humans naturally evaluate video quality. Humans typically decompose their assessment into multiple dimensions (e.g., motion dynamics, visual quality, temporal consistency), evaluate each dimension independently, and then integrate these multi-dimensional judgments into an overall preference score. We design our training process to mimic this cognitive mechanism: the model first learns the reasoning behind human judgments along individual dimensions (ScDR), and then acquires the ability to synthesize cross-dimensional evaluations into a holistic preference (HCR).                </p>
+                    <p>
+                        In the course of our analysis, we uncover an unexpected yet critical phenomenon: some of dimensions involved in human preference annotations exhibit significant contradictions and negative correlations. Notably, we observe a strong negative correlation between motion dynamics and static visual quality dimensions—videos with lower motion dynamics tend to score higher on other static quality metrics, leading human annotators to rate them more favorably overall. However, using such preferences for model optimization biases the generator toward producing videos with reduced motion dynamics, ultimately compromising motion richness and diversity. To address this issue, we propose McDPO, a novel alignment strategy that explicitly mitigates this trade-off and encourages the generation of videos with enhanced motion dynamics.                </p>
             </div>
         </div>
     </div>
@@ -195,7 +165,7 @@
             <!-- <h2 class="title">Method</h2> -->
             <h2 class="title has-text-centered">Method</h2>
             <div class="image-container">
-                <img src="static/images/overview_new.jpg" alt="Method overview" style="max-width: 100%; height: auto; margin: 20px 0;">
+                <img src="static/images/Framework_new.jpg" alt="Method overview" style="max-width: 100%; height: auto; margin: 20px 0;">
                     <p>
                         We present MoSAM, a unified framework that synergistically integrates Motion-Guided Prompting (MGP) and Spatial-Temporal Memory Selection (ST-MS) to enhance motion-aware segmentation with reliable memory management.
                     </p>
@@ -215,16 +185,16 @@
             <!-- First row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of SAM2</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline</p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case1-sam2.mp4" type="video/mp4">
+                        <source src="static/videos/case1-baseline.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our MoSAM</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case1-MoSAM.mp4" type="video/mp4">
+                        <source src="static/videos/case1-ours.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
@@ -233,16 +203,16 @@
             <!-- Second row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of SAM2</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline/p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case2-sam2.mp4" type="video/mp4">
+                        <source src="static/videos/case2-baseline.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our MoSAM</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case2-MoSAM.mp4" type="video/mp4">
+                        <source src="static/videos/case2-ours.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
@@ -251,16 +221,34 @@
             <!-- Thrid row of videos -->
             <div style="display: flex; justify-content: space-between; margin: 20px 0;">
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of SAM2</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline</p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case3-SAM2.mp4" type="video/mp4">
+                        <source src="static/videos/case3-baseline.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
                 <div style="width: 48%; text-align: center;">
-                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our MoSAM</p>
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
                     <video controls style="width: 100%;">
-                        <source src="static/videos/case3-MoSAM.mp4" type="video/mp4">
+                        <source src="static/videos/case3-ours.mp4" type="video/mp4">
+                        <!-- Your browser does not support the video tag. -->
+                    </video>
+                </div>
+            </div>
+
+            <!-- Fourth row of videos -->
+            <div style="display: flex; justify-content: space-between; margin: 20px 0;">
+                <div style="width: 48%; text-align: center;">
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of the baseline/p>
+                    <video controls style="width: 100%;">
+                        <source src="static/videos/case4-baseline.mp4" type="video/mp4">
+                        <!-- Your browser does not support the video tag. -->
+                    </video>
+                </div>
+                <div style="width: 48%; text-align: center;">
+                    <p style="text-align: center; margin-bottom: 10px;">Video segmentation results of our McSc</p>
+                    <video controls style="width: 100%;">
+                        <source src="static/videos/case4-ours.mp4" type="video/mp4">
                         <!-- Your browser does not support the video tag. -->
                     </video>
                 </div>
@@ -271,7 +259,7 @@
 </section>
 
 <!-- Results部分 -->
-<section class="section">
+<!-- <section class="section">
     <div class="container">
         <div class="content">
             <h2 class="title has-text-centered">Results</h2>
@@ -287,17 +275,17 @@
             </div>
         </div>
     </div>
-</section>
+</section> -->
 
 
 <section class="section" id="BibTeX">
     <div class="container content">
       <h2 class="title">BibTeX</h2>
       <pre><code>@article{arxiv_coming_soon
-    author    = {Qiushi Yang, Yuan Yao, Miaomiao Cui, Liefeng Bo},
-    title     = {MoSAM: Motion-Guided Segment Anything Model with Spatial-Temporal Memory Selection},
+    author    = {Qiushi Yang, Yingjie Chen, Yuan Yao, Yifang Men, Huaizhuo Liu, Miaomiao Cui},
+    title     = {McSc: Motion-Corrective Preference Alignment for Video Generation with Self-Critic Hierarchical Reasoning},
     journal   = {arXiv},
-    year      = {2025.03},
+    year      = {2025},
   }</code></pre>
     </div>
   </section>
