@@ -50,7 +50,7 @@ McSc contains three key steps: (1) ScDR trains a generative reward model with a 
 ## 🎖️ Results
 
 <p align="center">
-<img src="assets/Visualization_Comparison_0730.jpg" width="88%" />
+<img src="assets/Visualization_Comparison.jpg" width="88%" />
 </p>
 
 Visualization comparison of generated videos by the baselines and the proposed method. Our McSc generate videos with larger motion dynamic and stronger semantic alignment.
