@@ -7,8 +7,8 @@
 [Tongyi Lab, Alibaba](https://tongyi.aliyun.com/welcome) 
 </div>
 
-<a href="https://github.com/QiushiYang/McSc"><img src='https://img.shields.io/badge/arXiv-MoSAM-red' alt='Paper PDF'></a>
-<a href='https://github.com/QiushiYang/McSc'><img src='https://img.shields.io/badge/Project_Page-MoSAM-green' alt='Project Page'></a>
+<a href="https://github.com/QiushiYang/McSc"><img src='https://img.shields.io/badge/arXiv-McSc-red' alt='Paper PDF'></a>
+<a href='https://github.com/QiushiYang/McSc'><img src='https://img.shields.io/badge/Project_Page-McSc-green' alt='Project Page'></a>
 
 
 This repository is the official implementation of McSc: Motion-Corrective Preference Alignment for Video Generation with Self-Critic Hierarchical Reasoning
